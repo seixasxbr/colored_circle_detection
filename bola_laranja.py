@@ -5,8 +5,8 @@ import cv2 as cv
 img = cv.imread("fotos/foto1.jpg")
 hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
 
-lower_range = np.array([5, 100, 20])
-upper_range = np.array([25, 255, 255])
+lower_range = np.array([5, 100, 100])
+upper_range = np.array([14, 255, 255])
 
 mask = cv.inRange(hsv, lower_range, upper_range)
 # cv.imshow("orange", mask)
@@ -33,7 +33,7 @@ def main(argv):
     
     rows = gray.shape[0]
     circles = cv.HoughCircles(gray, cv.HOUGH_GRADIENT, 1, rows / 8,
-                               param1=60, param2=20,
+                               param1=60, param2=16,
                                minRadius=100, maxRadius=300)
     
     
